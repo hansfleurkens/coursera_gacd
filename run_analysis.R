@@ -90,7 +90,7 @@ colnames(selected_data)[3:ncol(selected_data)] <- varnames
 ###############################################################################
 melted <- melt(selected_data,id=1:2)
 # The wide representation of the tidy dataset
-tidy_data_wide <- dcast(t,Activity + Subject ~ variable, mean)
+tidy_data_wide <- dcast(melted,Activity + Subject ~ variable, mean)
 # And the narrow tidy dataset
 tidy_data_narrow <- melt(tidy_data_wide,id=1:2)
 # Update column names
